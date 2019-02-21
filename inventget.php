@@ -23,8 +23,7 @@
         array_push($storeID, $stmt->fetchAll(PDO::FETCH_COLUMN, 0));
 
 	// Initializing data into HTML elements
-        echo '<tr> <td> lah </td> </tr>';
-        echo count($warehouseID[0]);
+        echo '<tr> <td> Warehouse ID </td> <td> Product ID </td> <td> Reorder limit </td></tr>';
         for($i = 0; $i<count($warehouseID[0]); $i++){
             $sql = "SELECT * FROM warehouseinventory WHERE warehouseID=:WID";
             $stmt = $pdo->prepare($sql);
@@ -55,7 +54,8 @@
             }
         } 
 
-        echo '<tr> <td> lih </td> </tr>';
+        echo '<tr><td colspan="3">==================================================================';
+        echo '</td></tr><tr> <td> Store ID </td> <td> Product ID </td> <td> Reorder limit </td></tr>';
         for($i = 0; $i<count($storeID[0]); $i++){
             $sql = "SELECT * FROM storeinventory WHERE storeID=:STID";
             $stmt = $pdo->prepare($sql);
