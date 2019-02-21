@@ -36,7 +36,7 @@ window.onclick = function(event) {
 <div id = "navBarWrapper">
     <nav id = "navBar" class = "topnav">
         <?php if(isset($_SESSION["StudentID"])) : ?><!--Checking if student is logged in for different nav bar-->
-            <div id = "navBarNormal"><a class = "baseText" id = "homeLink" href = "index.php">1</a><!--Removing spacing
+            <div id = "navBarNormal"><a class = "baseText" id = "homeLink" href = "index.php">index</a><!--Removing spacing
             --><a class = "baseText" id = "eventsLink" href = "manage.php">manage</a><!--Removing spacing
             --><a class = "baseText" id = "membersLink" href = "members.php">3</a><!--Removing spacing
 			--><a class = "baseText" id = "myProfileLink" href = "my-profile.php">4</a></div><!--Removing spacing
