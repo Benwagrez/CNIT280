@@ -21,7 +21,15 @@
     <header id = "header"><?php include "header.php"; ?></header>
         
     <body>
-        <?php include "inventget.php"; ?>
+    <p>Event History</p>
+        <div id = "inventory">
+            <form id = "manageLeadersForm" method = "post" action = "updateinvent.php">
+                <table id = "inventoryTable">
+                    <?php include "inventget.php"; ?>
+                </table>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
         <div id = "footerPusher">
 
             <img id = "fixedBGImg" src = "img/mountain.png"> <!--Fixed image in background-->

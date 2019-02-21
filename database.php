@@ -1,11 +1,11 @@
 <?php
 
-    // $host = "localhost";
-    // $user = "root";
-    // $dbname = "fastfit";
+    $host = "localhost";
+    $user = "root";
+    $dbname = "fastfit";
 
-    // $dsn = "mysql:host=".$host."; dbname=".$dbname;
+    $dsn = "mysql:host=".$host."; dbname=".$dbname;
 
-    // $pdo = new PDO($dsn,$user);
+    $pdo = new PDO($dsn,$user);
 
 ?>

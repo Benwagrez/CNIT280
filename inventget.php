@@ -9,7 +9,6 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-        $warehouseInventCount = $stmt->rowCount();
         $warehouseID = array();
         array_push($warehouseID, $stmt->fetchAll(PDO::FETCH_COLUMN, 0));
 
@@ -20,39 +19,70 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-        $storeInventCount = $stmt->rowCount();
         $storeID = array();
         array_push($storeID, $stmt->fetchAll(PDO::FETCH_COLUMN, 0));
 
 	// Initializing data into HTML elements
-
-        for($i = 0; $i<$warehouseInventCount; $i++){
-            for($o = 0; $o<$warehouseID.size(); $o++){
-                $sql = "SELECT * FROM events WHERE EventID=:eventID AND EndDate >= CURDATE() AND ReleaseDate <= CURDATE() ORDER BY StartDate";
-                $stmt = $pdo->prepare($sql);
-                $stmt->execute(["eventID" => $eventIDs[0][$i]]);
-                $data = array();
-                $data = $stmt->fetchAll();
+        echo '<tr> <td> lah </td> </tr>';
+        echo count($warehouseID[0]);
+        for($i = 0; $i<count($warehouseID[0]); $i++){
+            $sql = "SELECT * FROM warehouseinventory WHERE warehouseID=:WID";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(["WID" => $warehouseID[0][$i]]);
+            $data = array();
+            $data = $stmt->fetchAll();
+            for($o = 0; $o<count($data); $o++){
                 if(count($data)>0){
-                    echo '<tr>';
-                    echo '<td>', $data[0][1], '</td>';
-                    echo '<td>', $data[0][2], '</td>';
-                    echo '</tr>';
+                    if($data[$o][2]<$data[$o][3]){
+                        echo '<tr>';
+                        echo '<td>', $data[$o][1], '</td>';
+                        echo '<td  style="color: red;">', $data[$o][2], '</td>';
+                        echo '<td> <input name = "warehouselim[',$i,'][', $o,']" value="', $data[$o][3],'">';
+                        echo '<td> <input type="hidden" name = "WproductID[',$i,'][', $o,']" value="', $data[$o][1],'">';
+                        echo '<td> <input type="hidden" name = "warehouseID[',$i,'][', $o,']" value="', $data[$o][0],'">';
+                        echo '</tr>';
+                    }
+                    else{
+                        echo '<tr>';
+                        echo '<td>', $data[$o][1], '</td>';
+                        echo '<td>', $data[$o][2], '</td>';
+                        echo '<td> <input name = "warehouselim[',$i,'][', $o,']" value="', $data[$o][3],'">';
+                        echo '<td> <input type="hidden" name = "WproductID[',$i,'][', $o,']" value="', $data[$o][1],'">';
+                        echo '<td> <input type="hidden" name = "warehouseID[',$i,'][', $o,']" value="', $data[$o][0],'">';
+                        echo '</tr>';
+                    }
                 }
             }
         } 
 
-        for($i = 0; $i<$storeInventCount; $i++){
-            $sql = "SELECT * FROM events WHERE EventID=:eventID AND EndDate >= CURDATE() AND ReleaseDate <= CURDATE() ORDER BY StartDate";
+        echo '<tr> <td> lih </td> </tr>';
+        for($i = 0; $i<count($storeID[0]); $i++){
+            $sql = "SELECT * FROM storeinventory WHERE storeID=:STID";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute(["eventID" => $eventIDs[0][$i]]);
+            $stmt->execute(["STID" => $storeID[0][$i]]);
             $data = array();
             $data = $stmt->fetchAll();
-            if(count($data)>0){
-                echo '<tr>';
-                echo '<td>', $data[0][1], '</td>';
-                echo '<td>', $data[0][2], '</td>';
-                echo '</tr>';
+            for($o = 0; $o<count($data); $o++){
+                if(count($data)>0){
+                    if($data[$o][2]<$data[$o][3]){
+                        echo '<tr>';
+                        echo '<td>', $data[$o][1], '</td>';
+                        echo '<td  style="color: red;">', $data[$o][2], '</td>';
+                        echo '<td> <input name = "storelim[',$i,'][', $o,']" value="', $data[$o][3],'">';
+                        echo '<td> <input type="hidden" name = "SproductID[',$i,'][', $o,']" value="', $data[$o][1],'">';
+                        echo '<td> <input type="hidden" name = "storeID[',$i,'][', $o,']" value="', $data[$o][0],'">';
+                        echo '</tr>';
+                    }
+                    else{
+                        echo '<tr>';
+                        echo '<td>', $data[$o][1], '</td>';
+                        echo '<td>', $data[$o][2], '</td>';
+                        echo '<td> <input name = "storelim[',$i,'][', $o,']" value="', $data[$o][3],'">';
+                        echo '<td> <input type="hidden" name = "SproductID[',$i,'][', $o,']" value="', $data[$o][1],'">';
+                        echo '<td> <input type="hidden" name = "storeID[',$i,'][', $o,']" value="', $data[$o][0],'">';
+                        echo '</tr>';
+                    }
+                }
             }
         } 
 ?>
