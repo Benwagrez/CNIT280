@@ -9,7 +9,7 @@
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
     <head>
 
-        <title>PAGE TEMPLATE</title>
+        <title>FastFit</title>
 
         <link rel="stylesheet" href="baseCSS.css">
         <link rel="icon" type="image/png" href="img/mountain.png">
