@@ -29,6 +29,12 @@
                 <input type="text" name="barcodeInput" value="Please enter barcode"><br>
                 <input type="submit" value="Submit">
             </form>
+            <p>Accepted barcodes are:<br>
+            00001
+            52003
+            89622
+            05227
+            99999</p>
 
         </div>
     </body>
