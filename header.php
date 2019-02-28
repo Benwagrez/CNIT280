@@ -2,19 +2,18 @@
 
 <div id = "banner" style = "width:100%">
 
-	<img id = "LPLogo" src = "img/LP_logo.png" style = "opacity: 0; height: 100px;"><!--LPHS Logo-->
+	<img id = "LPLogo" src = "img/mountain.png" style = "opacity: 0; height: 100px;"><!--LPHS Logo-->
         
 	<h1 class = "baseText" style = "padding-bottom: 0px; margin-bottom:0px; color: #005da3;"><span id = "LPNHS" style = "cursor: pointer;" onclick = "location.href='index.php'" title = "LPNHS - Home">FastFit</span></h1>
 	<h2 class = "baseTextb" style = "padding-top: 0px; margin-top:0px; color: #666;">WE KNOW WINTER™</h2>
-	<?php if(isset($_SESSION["StudentID"])) : ?><!--Checking if user is logged in for either sign in or sign out button-->
+	<?php if(isset($_SESSION["EmployeeID"]) || isset($_SESSION["CustomerID"])) : ?><!--Checking if user is logged in for either sign in or sign out button-->
 		<div id = "headerLogout" class = "headerSignIn"><button id = "headerLogoutButton">Sign Out</button></div>
 	<?php else: ?>
 		<div id = "headerLogin" class = "headerSignIn"><button id = "headerLoginButton">Sign In</button></div>
 	<?php endif; ?>
 
 </div>
-    <script>/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
+    <script>/* When the user clicks on the button, toggle between hiding and showing the dropdown content */
 function navBarDD() {
     document.getElementById("navBarDD").classList.toggle("show");
 }
@@ -35,14 +34,14 @@ window.onclick = function(event) {
 }</script>
 <div id = "navBarWrapper">
     <nav id = "navBar" class = "topnav">
-        <?php if(isset($_SESSION["StudentID"])) : ?><!--Checking if student is logged in for different nav bar-->
-            <div id = "navBarNormal"><a class = "baseText" id = "homeLink" href = "index.php">index</a><!--Removing spacing
+        <?php if(isset($_SESSION["EmployeeID"]) || isset($_SESSION["CustomerID"])) : ?><!--Checking if student is logged in for different nav bar-->
+            <div id = "navBarNormal"><a class = "baseText" id = "homeLink" href = "index.php">Home</a><!--Removing spacing
             --><a class = "baseText" id = "eventsLink" href = "manage.php">manage</a><!--Removing spacing
             --><a class = "baseText" id = "membersLink" href = "members.php">3</a><!--Removing spacing
-			--><a class = "baseText" id = "myProfileLink" href = "my-profile.php">4</a></div><!--Removing spacing
+			--><a class = "baseText" id = "myProfileLink" href = "profile.php">Profile</a></div><!--Removing spacing
             --><div class="dropdown"><!--Removing spacing
-            --><a class = "baseText" href="index.php">1</a><!--Removing spacing
-            --><a class = "baseText" href="my-profile.php">5</a><!--Removing spacing            
+            --><a class = "baseText" href="index.php">Home</a><!--Removing spacing
+            --><a class = "baseText" href="profile.php">Profile</a><!--Removing spacing            
             --><button onclick="navBarDD()" class="dropbtn" aria-haspopup="true">&#9776;</button>
                 <div id="navBarDD" class="dropdown-content">
                     <a style="padding-left: 10px;border-bottom: .5px solid gray;width:100%;" href="events.php">2</a>
@@ -52,8 +51,8 @@ window.onclick = function(event) {
         <?php else :?><!--If not logged in then the nav bar below-->
         <div id = "navBarNormal"><a class = "baseText" id = "homeLink" style="width:33.33%" href = "index.php">Home</a><!--Removing spacing
             --><a class = "baseText" id = "customerReturns" style="width:33.33%" href = "customerreturnbarcode.php">Customer Returns</a><!--Removing spacing
-			--><a class = "baseText" id = "manage" style="width:33.33%" href = "manage.php">Manage</a></div><!--Removing spacing
-            --><div class="dropdown"><a style="width:33.33%" class = "baseText" href="index.php">1</a><!--Removing spacing
+			--><a class = "baseText" id = "manage" style="width:33.33%" href = "index.php">something</a></div><!--Removing spacing
+            --><div class="dropdown"><a style="width:33.33%" class = "baseText" href="index.php">Home</a><!--Removing spacing
             --><a class = "baseText" style="width:33.33%" href="login.php">Sign In</a><!--Removing spacing
             --><button onclick="navBarDD()" class="dropbtn" aria-haspopup="true">&#9776;</button>
                 <div id="navBarDD" class="dropdown-content">
