@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2019 at 09:50 PM
+-- Generation Time: Feb 28, 2019 at 04:54 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -87,6 +87,13 @@ CREATE TABLE `department` (
   `Permission_Level` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` (`DepartmentCode`, `Department_Description`, `Permission_Level`) VALUES
+('777', 'The Goat...He stand in the face of all adversity ', '9');
+
 -- --------------------------------------------------------
 
 --
@@ -104,8 +111,16 @@ CREATE TABLE `employee` (
   `Employee_EmailAddress` varchar(50) NOT NULL,
   `Employee_FirstName` varchar(15) NOT NULL,
   `Employee_LastName` varchar(25) NOT NULL,
-  `Employee_Role` varchar(20) NOT NULL
+  `Employee_Role` varchar(20) NOT NULL,
+  `Employee_Password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`EmployeeID`, `DepartmentCode`, `Employee_Address`, `Employee_Zip_Code`, `Employee_City`, `Employee_State`, `Employee_Phone`, `Employee_EmailAddress`, `Employee_FirstName`, `Employee_LastName`, `Employee_Role`, `Employee_Password`) VALUES
+('1', '777', '2345 Maplestory Drive', '28989', 'Boston', 'NC', '8387273894', 'benwagzz@hotmail.com', 'Ben', 'Wagrez', 'Mastermind', 'myHashedPass1');
 
 -- --------------------------------------------------------
 
