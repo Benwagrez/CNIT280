@@ -65,9 +65,9 @@
     <header id = "header"><?php include "header.php"; ?></header>
         
     <body>
-    <p>Inventories</p>
+    <p>Sales</p>
         <div class = "classic panel" id = "inventory">
-            <form id = "manageLeadersForm" method = "post" action = "updateinvent.php">
+            <form id = "manageLeadersForm" method = "post" action = "updatesales.php">
                 <table id = "inventoryTable" class = "listing">
                     <?php include "salesget.php"; ?>
                 </table>

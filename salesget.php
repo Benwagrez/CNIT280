@@ -45,11 +45,9 @@
                 if(count($data)>0){
                     echo '<tr>';
                     echo '<td>', $data[$o][0], '</td>';
-                    echo '<td>', $cusInfo[0][2],', ',$cusInfo[0][3], '</td>';
+                    echo '<td>', $cusInfo[0][2],', ',$cusInfo[0][1], '</td>';
                     echo '<td>', $data[$o][1],'</td>';
                     echo '<td>', $ItemInfo[0][4],'   $', $ItemInfo[0][3],'<br>',$ItemInfo[0][2],'</td>';
-                    echo '<td> <input type="hidden" name = "WproductID[',$i,'][', $o,']" value="', $data[$o][1],'">';
-                    echo '<td> <input type="hidden" name = "order1ID[',$i,'][', $o,']" value="', $data[$o][0],'">';
                     echo '</tr>';
                     
                 }
@@ -65,18 +63,12 @@
             $data = array();
             $data = $stmt->fetchAll();
 
-            for($o = 0; $o<count($data); $o++){
-                if(count($data)>0){
-                    echo '<tr>';
-                    echo '<td>', $data[$o][2],', ',$data[$o][1], '</td>';
-                    echo '<td>', $data[$o][3],', ',$data[$o][4],', ', $data[$o][6],' ', $data[$o][5], '</td>';
-                    echo '<td>', $data[$o][8],'<br>',$data[$o][9],'">';
-                    echo '<td>',$data[$o][10],'</td>';
-                    echo '<td> <input type="hidden" name = "SproductID[',$i,'][', $o,']" value="', $data[$o][1],'">';
-                    echo '<td> <input type="hidden" name = "CustID[',$i,'][', $o,']" value="', $data[$o][0],'">';
-                    echo '</tr>';
-
-                }
-            }
+            echo '<tr>';
+            echo '<td>', $data[0][2],', ',$data[0][1], '</td>';
+            echo '<td>', $data[0][3],', ',$data[0][4],', ', $data[0][6],' ', $data[0][5], '</td>';
+            echo '<td>', $data[0][9],'<br>',$data[0][10],'</td>';
+            echo '<td> <input name = "client[',$i,']" value="', $data[0][11],'"></td>';
+            echo '</tr>';
+            
         } 
 ?>
