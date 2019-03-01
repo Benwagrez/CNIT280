@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2019 at 04:54 PM
+-- Generation Time: Mar 01, 2019 at 02:21 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -59,8 +59,17 @@ CREATE TABLE `customer` (
   `Username` varchar(30) NOT NULL,
   `Password` varchar(30) NOT NULL,
   `Customer_Email` varchar(50) NOT NULL,
-  `Customer_Phone` char(10) NOT NULL
+  `Customer_Phone` char(10) NOT NULL,
+  `Notes` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`Customer_ID`, `Customer_FirstName`, `Customer_LastName`, `Customer_Address1`, `Customer_City`, `Customer_Zip`, `Customer_State`, `Username`, `Password`, `Customer_Email`, `Customer_Phone`, `Notes`) VALUES
+('1', 'Victor', 'Barlow', '313 Princess St. ', 'Doylestown', '18901', 'PA', 'VBarlow', 'FreshmenSuckA$$', 'VBarlow@gmail.com', '4044044044', 'Vic likes to buy giant cups of slushies in large quantities.'),
+('2', 'Van', 'Poole', '7042 Livingston St. ', 'Cedar Falls', '50613', 'KY', 'VPoole', 'I<3Anime', 'VPoole@gmail.com', '7582217166', 'Van is looking to open a ski lodge in Kentucky.');
 
 -- --------------------------------------------------------
 
@@ -92,6 +101,9 @@ CREATE TABLE `department` (
 --
 
 INSERT INTO `department` (`DepartmentCode`, `Department_Description`, `Permission_Level`) VALUES
+('001', 'Sales Department', '1'),
+('002', 'Operations Department', '2'),
+('003', 'Accounting Department', '3'),
 ('777', 'The Goat...He stand in the face of all adversity ', '9');
 
 -- --------------------------------------------------------
@@ -120,7 +132,9 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`EmployeeID`, `DepartmentCode`, `Employee_Address`, `Employee_Zip_Code`, `Employee_City`, `Employee_State`, `Employee_Phone`, `Employee_EmailAddress`, `Employee_FirstName`, `Employee_LastName`, `Employee_Role`, `Employee_Password`) VALUES
-('1', '777', '2345 Maplestory Drive', '28989', 'Boston', 'NC', '8387273894', 'benwagzz@hotmail.com', 'Ben', 'Wagrez', 'Mastermind', 'myHashedPass1');
+('1', '777', '2345 Maplestory Drive', '28989', 'Boston', 'NC', '8387273894', 'benwagzz@hotmail.com', 'Ben', 'Wagrez', 'Mastermind', 'myHashedPass1'),
+('2', '3', '7595 South Marvon Road ', '23860', 'Hopewell', 'VA', '8786324116', 'ASwine@fastfit.org', 'Alex', 'Swineford', 'Head Accountant', 'IUsucksA$$'),
+('5', '1', '252 Lawrence Drive ', '03060', 'Nashua', 'NH', '7576338939', 'JJones@fastfit.org', 'Jessica', 'Jones', 'Sales', 'JessicaLovesDirt');
 
 -- --------------------------------------------------------
 
@@ -169,6 +183,15 @@ CREATE TABLE `itemordered` (
   `Quantity` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `itemordered`
+--
+
+INSERT INTO `itemordered` (`OrderID`, `ItemID`, `Quantity`) VALUES
+('1', '1', 1),
+('1', '4', 5),
+('2', '3', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -179,6 +202,14 @@ CREATE TABLE `order1` (
   `OrderID` char(7) NOT NULL,
   `CustomerID` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order1`
+--
+
+INSERT INTO `order1` (`OrderID`, `CustomerID`) VALUES
+('1', '2'),
+('2', '1');
 
 -- --------------------------------------------------------
 
@@ -248,6 +279,7 @@ INSERT INTO `storeinventory` (`StoreID`, `ItemID`, `StoreInventory_Quantity`, `R
 
 CREATE TABLE `supplier` (
   `SupplierID` char(5) NOT NULL,
+  `Supplier_Name` varchar(30) NOT NULL,
   `Supplier_Address` varchar(30) NOT NULL,
   `Supplier_City` varchar(25) NOT NULL,
   `Supplier_State` varchar(20) NOT NULL,
@@ -255,6 +287,14 @@ CREATE TABLE `supplier` (
   `Supplier_Email` varchar(50) NOT NULL,
   `Supplier_Phone` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`SupplierID`, `Supplier_Name`, `Supplier_Address`, `Supplier_City`, `Supplier_State`, `Supplier_Zip_Code`, `Supplier_Email`, `Supplier_Phone`) VALUES
+('00001', 'Billy\'s Winter Jackets', '7418 Taylor Ave. ', 'Bensalem', 'PA', '19020', 'billyjackets@hotmail.com', '8726387466'),
+('00002', 'Snowboards Inc', '363 Water Rd. ', 'Niceville', 'FL', '32578', 'snowbordz@snowboardz.org', '1229378499');
 
 -- --------------------------------------------------------
 
@@ -270,6 +310,14 @@ CREATE TABLE `supplierorder` (
   `SupplierOrder_TotalPrice` double NOT NULL,
   `SupplierOrder_Quantity` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `supplierorder`
+--
+
+INSERT INTO `supplierorder` (`SupplierOrderID`, `SupplierID`, `ItemID`, `WarehouseID`, `SupplierOrder_TotalPrice`, `SupplierOrder_Quantity`) VALUES
+('4044', '00002', '1', '2', 3300.5, 25),
+('5505', '00001', '2', '1', 565, 10);
 
 -- --------------------------------------------------------
 
@@ -365,7 +413,7 @@ ALTER TABLE `item`
 -- Indexes for table `itemordered`
 --
 ALTER TABLE `itemordered`
-  ADD PRIMARY KEY (`OrderID`);
+  ADD PRIMARY KEY (`OrderID`,`ItemID`);
 
 --
 -- Indexes for table `order1`
