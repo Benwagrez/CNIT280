@@ -37,7 +37,7 @@ window.onclick = function(event) {
         <?php if(isset($_SESSION["EmployeeID"]) || isset($_SESSION["CustomerID"])) : ?><!--Checking if student is logged in for different nav bar-->
             <div id = "navBarNormal"><a class = "baseText" id = "homeLink" href = "index.php">Home</a><!--Removing spacing
             --><a class = "baseText" id = "eventsLink" href = "manage.php">manage</a><!--Removing spacing
-            --><a class = "baseText" id = "membersLink" href = "members.php">3</a><!--Removing spacing
+            --><a class = "baseText" id = "membersLink" href = "customerreturnbarcode.php">Customer Returns</a><!--Removing spacing
 			--><a class = "baseText" id = "myProfileLink" href = "profile.php">Profile</a></div><!--Removing spacing
             --><div class="dropdown"><!--Removing spacing
             --><a class = "baseText" href="index.php">Home</a><!--Removing spacing
@@ -45,7 +45,7 @@ window.onclick = function(event) {
             --><button onclick="navBarDD()" class="dropbtn" aria-haspopup="true">&#9776;</button>
                 <div id="navBarDD" class="dropdown-content">
                     <a style="padding-left: 10px;border-bottom: .5px solid gray;width:100%;" href="events.php">2</a>
-                    <a style="padding-left: 10px;border-bottom: .5px solid gray;width:100%;" href="members.php">3</a>
+                    <a style="padding-left: 10px;border-bottom: .5px solid gray;width:100%;" href="customerreturnbarcode.php">Customer Returns</a>
                     <a style="padding-left: 10px;border-bottom: .5px solid gray;width:100%;" href="logout.php">Sign Out</a>
                 </div></div>
         <?php else :?><!--If not logged in then the nav bar below-->
