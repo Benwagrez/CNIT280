@@ -17,8 +17,8 @@
         <script src="headerJQuery.js"></script>
         <script>
         $(document).ready(function() {
-                $("#something").click(function(){
-                    window.location.href = "index.php";
+                $("#sales").click(function(){
+                    window.location.href = "sales.php";
                 });
                 $("#invent").click(function(){
                     window.location.href = "manage.php";
@@ -36,8 +36,8 @@
                 <div id = "invent" class = "dashboardButton">
                     <p>Inventory</p>
                 </div>
-                <div id = "something" class = "dashboardButton">
-                    <p>Something</p>
+                <div id = "sales" class = "dashboardButton">
+                    <p>Sales</p>
                 </div>
                 <div id = "something" class = "dashboardButton">
                     <p>something</p>
