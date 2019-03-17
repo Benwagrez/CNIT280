@@ -3,9 +3,12 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2019 at 02:21 AM
+-- Generation Time: Mar 17, 2019 at 07:41 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
+
+--Updated 3-17-19 by David
+--Added a returns table, deleted item_status under item table, added entries to returns
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -157,19 +160,18 @@ CREATE TABLE `item` (
   `ItemID` char(10) NOT NULL,
   `Category_ID` char(5) NOT NULL,
   `Item_Description` varchar(50) NOT NULL,
-  `Price` double NOT NULL,
-  `Item_Status` varchar(10) NOT NULL
+  `Price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`ItemID`, `Category_ID`, `Item_Description`, `Price`, `Item_Status`) VALUES
-('1', '1', 'A high end snowboard.', 110, 'new'),
-('2', '2', 'A high quality black sweater.', 35, 'new'),
-('3', '2', 'Bright blue snow pants', 15, 'new'),
-('4', '3', 'Chocolate granola bar', 2.5, 'new');
+INSERT INTO `item` (`ItemID`, `Category_ID`, `Item_Description`, `Price`) VALUES
+('1', '1', 'A high end snowboard.', 110),
+('2', '2', 'A high quality black sweater.', 35),
+('3', '2', 'Bright blue snow pants', 15),
+('4', '3', 'Chocolate granola bar', 2.5);
 
 -- --------------------------------------------------------
 
@@ -210,6 +212,26 @@ CREATE TABLE `order1` (
 INSERT INTO `order1` (`OrderID`, `CustomerID`) VALUES
 ('1', '2'),
 ('2', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `returns`
+--
+
+CREATE TABLE `returns` (
+  `CustomerID` char(10) NOT NULL,
+  `ProductID` char(10) NOT NULL,
+  `OrderID` char(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `returns`
+--
+
+INSERT INTO `returns` (`CustomerID`, `ProductID`, `OrderID`) VALUES
+('1', '4', '2'),
+('2', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -420,6 +442,12 @@ ALTER TABLE `itemordered`
 --
 ALTER TABLE `order1`
   ADD PRIMARY KEY (`OrderID`);
+
+--
+-- Indexes for table `returns`
+--
+ALTER TABLE `returns`
+  ADD PRIMARY KEY (`CustomerID`,`ProductID`,`OrderID`);
 
 --
 -- Indexes for table `shipper`

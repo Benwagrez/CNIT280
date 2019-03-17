@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<?php 
+<?php
     session_start();
     require "database.php";
 ?>
@@ -23,13 +23,16 @@
                 $("#invent").click(function(){
                     window.location.href = "manage.php";
                 });
+                $("#operations").click(function(){
+                    window.location.href = "operations.php";
+                });
         });
         </script>
 
     </head>
 
     <header id = "header"><?php include "header.php"; ?></header>
-        
+
     <body>
 
             <div id = "presidentialOptions" class = "dashboard">
@@ -39,8 +42,8 @@
                 <div id = "sales" class = "dashboardButton">
                     <p>Sales</p>
                 </div>
-                <div id = "something" class = "dashboardButton">
-                    <p>something</p>
+                <div id = "operations" class = "dashboardButton">
+                    <p>Operations</p>
                 </div>
             </div>
 
