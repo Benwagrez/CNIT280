@@ -42,7 +42,7 @@
                 $ItemInfo = array();
                 $ItemInfo = $stmt->fetchAll();
 
-                if(count($data)>0){
+                if($o==0){
                     echo '<tr>';
                     echo '<td>', $data[$o][0], '</td>';
                     echo '<td>', $cusInfo[0][2],', ',$cusInfo[0][1], '</td>';
@@ -50,8 +50,16 @@
                     echo '<td>$', $ItemInfo[0][3],'<br>',$ItemInfo[0][2],'</td>';
                     echo '<td> <input name = "order[',$i,']" type="submit" value="<>"> </td>';
                     echo '</tr>';
-                    
-                }
+               }
+               else{
+                    echo '<tr>';
+                    echo '<td>', $data[$o][0], '</td>';
+                    echo '<td>', $cusInfo[0][2],', ',$cusInfo[0][1], '</td>';
+                    echo '<td>', $data[$o][1],'</td>';
+                    echo '<td>$', $ItemInfo[0][3],'<br>',$ItemInfo[0][2],'</td>';
+                    echo '<td> </td>';
+                    echo '</tr>';
+               }
             }
         } 
 
