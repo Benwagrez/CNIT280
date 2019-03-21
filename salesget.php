@@ -12,7 +12,7 @@
         $order1ID = $stmt->fetchAll();
 
         // Store inventories
-        
+
         $sql = "SELECT * FROM CUSTOMER";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -49,10 +49,10 @@
                     echo '<td>', $data[$o][1],'</td>';
                     echo '<td>$', $ItemInfo[0][3],'<br>',$ItemInfo[0][2],'</td>';
                     echo '</tr>';
-                    
+
                 }
             }
-        } 
+        }
 
         echo '<tr><td colspan="4">=========================SUPPLIERS/CLIENTS============================';
         echo '</td></tr><tr> <td> Name </td> <td> Address </td> <td> Email and Phone </td> <td>Notes</td></tr>';
@@ -69,6 +69,6 @@
             echo '<td>', $data[0][9],'<br>',$data[0][10],'</td>';
             echo '<td> <input name = "client[',$i,']" value="', $data[0][11],'"></td>';
             echo '</tr>';
-            
-        } 
+
+        }
 ?>
