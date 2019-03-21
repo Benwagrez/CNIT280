@@ -2,7 +2,7 @@
 <?php
     session_start();
     require "database.php";
-    include "loginCheck.php";
+    //include "loginCheck.php";
 ?>
 <html>
 <meta name="HandheldFriendly" content="true" />
