@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<?php 
+<?php
     session_start();
     require "database.php";
     include "loginCheck.php";
@@ -63,7 +63,7 @@
     </head>
 
     <header id = "header"><?php include "header.php"; ?></header>
-        
+
     <body>
     <p>Sales</p>
         <div class = "classic panel" id = "inventory">

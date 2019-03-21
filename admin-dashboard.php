@@ -26,6 +26,9 @@
                 $("#operations").click(function(){
                     window.location.href = "operations.php";
                 });
+                $("#warehouse").click(function(){
+                    window.location.href = "warehouseEmp.php";
+                });
         });
         </script>
 
@@ -44,6 +47,9 @@
                 </div>
                 <div id = "operations" class = "dashboardButton">
                     <p>Operations</p>
+                </div>
+                <div id = "warehouse" class = "dashboardButton">
+                    <p>Warehouse Employee</p>
                 </div>
             </div>
 

@@ -59,7 +59,7 @@ for($i = 0; $i<count($storeID[0]); $i++){
             echo 'stuff: ',$_POST["storelim"][$i][$o],' ',$_POST["storeID"][$i][$o],' ',$_POST["SproductID"][$i][$o]," ";
             $sql = "UPDATE storeinventory SET Reorder_Limit=:RL WHERE StoreID=:stID AND ProductID=:pID";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute(["RL" => $_POST["storelim"][$i][$o],"stID" => $_POST["storeID"][$i][$o],"pID" => $_POST["SproductID"][$i][$o]]); 
+            $stmt->execute(["RL" => $_POST["storelim"][$i][$o],"stID" => $_POST["storeID"][$i][$o],"pID" => $_POST["SproductID"][$i][$o]]);
         //}
     }
 }
