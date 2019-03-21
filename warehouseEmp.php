@@ -83,7 +83,7 @@
     <body>
       <p>warehouseEmp Rule...</p>
       <div class = "classic panel" id = "inventory">
-          <form id = "manageLeadersForm" method = "post" action = "warehouseempget.php">
+          <form id = "manageLeadersForm" method = "post" action = "updatewarehouseemp.php">
               <table id = "returnsTable" class = "listing">
                   <?php include "warehouseempget.php"; ?>
               </table>

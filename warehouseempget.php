@@ -22,7 +22,7 @@
 
 	// Initializing data into HTML elements
         echo '<tr><td colspan=4>ORDERS</td></tr>
-        <tr> <td> Order ID </td> <td> Customer ID </td> <td> Item ID </td> <td> Details </td> <td> Return Status </td></tr>';
+        <tr> <td> Order ID </td> <td> Customer ID </td> <td> Item ID </td> <td> Details </td> <td> Return Status </td><td> Confirm Return </td></tr>';
         for($i = 0; $i<count($order1ID); $i++){
             $sql = "SELECT * FROM ITEMORDERED WHERE OrderID=:WID";
             $stmt = $pdo->prepare($sql);
@@ -49,6 +49,7 @@
                     echo '<td>', $data[$o][1],'</td>';
                     echo '<td>$', $ItemInfo[0][3],'<br>',$ItemInfo[0][2],'</td>';
                     echo '<td>', $order1ID[$i][3],'</td>';
+                    echo '<td> <input name = "order[',$i,']" type="submit" value="<>"> </td>';
                     echo '</tr>';
 
                 }
