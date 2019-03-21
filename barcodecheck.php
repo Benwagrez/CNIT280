@@ -12,7 +12,7 @@
         echo '<script type="text/javascript">',
         'alert("Item successfully returned!");',
         '</script>';
-        echo "<script>window.location = 'https://darksplash.net/customerreturnbarcode.php'</script>";  //Will need to be changed for online implementation
+        echo "<script>window.location = 'http://cnit280.bitnamiapp.com/customerreturnbarcode.php'</script>";  //Will need to be changed for online implementation
     }
 
     else if($_POST["barcodeInput"] == $barcode2)
@@ -20,7 +20,7 @@
         echo '<script type="text/javascript">',
         'alert("Item successfully returned!");',
         '</script>';
-        echo "<script>window.location = 'https://darksplash.net/customerreturnbarcode.php'</script>";  //Will need to be changed for online implementation
+        echo "<script>window.location = 'http://cnit280.bitnamiapp.com/customerreturnbarcode.php'</script>";  //Will need to be changed for online implementation
     }
 
     else if($_POST["barcodeInput"] == $barcode3)
@@ -28,7 +28,7 @@
         echo '<script type="text/javascript">',
         'alert("Item successfully returned!");',
         '</script>';
-        echo "<script>window.location = 'https://darksplash.net/customerreturnbarcode.php'</script>";  //Will need to be changed for online implementation
+        echo "<script>window.location = 'http://cnit280.bitnamiapp.com/customerreturnbarcode.php'</script>";  //Will need to be changed for online implementation
     }
 
     else if($_POST["barcodeInput"] == $barcode4)
@@ -36,7 +36,7 @@
         echo '<script type="text/javascript">',
         'alert("Item successfully returned!");',
         '</script>';
-        echo "<script>window.location = 'https://darksplash.net/customerreturnbarcode.php'</script>";  //Will need to be changed for online implementation
+        echo "<script>window.location = 'http://cnit280.bitnamiapp.com/customerreturnbarcode.php'</script>";  //Will need to be changed for online implementation
     }
 
     else if($_POST["barcodeInput"] == $barcode5)
@@ -44,7 +44,7 @@
         echo '<script type="text/javascript">',
         'alert("Item successfully returned!");',
         '</script>';
-        echo "<script>window.location = 'https://darksplash.net/customerreturnbarcode.php'</script>";  //Will need to be changed for online implementation
+        echo "<script>window.location = 'http://cnit280.bitnamiapp.com/customerreturnbarcode.php'</script>";  //Will need to be changed for online implementation
     }
 
     else
@@ -52,7 +52,7 @@
         echo '<script type="text/javascript">',
         'alert("Barcode not recgonized, please try again.");',
         '</script>';
-        echo "<script>window.location = 'https://darksplash.net/customerreturnbarcode.php'</script>";  //Will need to be changed for online implementation
+        echo "<script>window.location = 'http://cnit280.bitnamiapp.com/customerreturnbarcode.php'</script>";  //Will need to be changed for online implementation
     }
 
 ?>
