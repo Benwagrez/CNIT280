@@ -3,60 +3,64 @@
 
 	// Pulling data from database
 
-
-
-        // Returns List
+        // Warehouse inventories
 
         $sql = "SELECT * FROM RETURNS";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
+        $order1ID = array();
+        $order1ID = $stmt->fetchAll();
 
-        $ReturnIDs = array();
-        $ReturnIDs = $stmt->fetchAll();
+        // Store inventories
+
+        $sql = "SELECT * FROM CUSTOMER";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        $CustID = array();
+        array_push($CustID, $stmt->fetchAll(PDO::FETCH_COLUMN, 0));
 
 	// Initializing data into HTML elements
-        echo '<tr><td colspan=4>RETURNS</td></tr>
-        <tr> <td> Customer ID </td> <td> Order ID </td> <td> Product ID </td></tr>';
-        for($i = 0; $i<count($ReturnIDs); $i++){
-            $sql = "SELECT * FROM RETURNS WHERE CustomerID=:WID, ProductID=:PID, OrderID=:OOID";
+        echo '<tr><td colspan=4>ORDERS</td></tr>
+        <tr> <td> Order ID </td> <td> Customer ID </td> <td> Item ID </td> <td> Details </td> <td> Return Status </td></tr>';
+        for($i = 0; $i<count($order1ID); $i++){
+            $sql = "SELECT * FROM ITEMORDERED WHERE OrderID=:WID";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute(["WID" => $ReturnIDs[$i][0], "PID" => $ReturnIDs[$i][1], "OOID" => $ReturnIDs[$i][2]]);  //Queries each row
-
-            /*
+            $stmt->execute(["WID" => $order1ID[$i][0]]);
             $data = array();
             $data = $stmt->fetchAll();
-            $sql = "SELECT * FROM RETURNS WHERE Customer_ID=:WID, ProductID=:PID, OrderID=:OOID"; //added PID and OOID
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute(["WID" => $ReturnIDs[$i][0], "PID" => $ReturnIDs[$i][1], "OOID" => $ReturnIDs[$i][2]]);  //Added PID and OOID.  Changed
-                                                                                                                    //$ReturnIDs[$i][0] TO $ReturnIDs[$i][1] and incremented
-            $cusInfo = array();
-            $cusInfo = $stmt->fetchAll();
+            //$sql = "SELECT * FROM CUSTOMER WHERE Customer_ID=:WID";
+            //$stmt = $pdo->prepare($sql);
+            //$stmt->execute(["WID" => $order1ID[$i][1]]);
+            //$cusInfo = array();
+            //$cusInfo = $stmt->fetchAll();
 
             for($o = 0; $o<count($data); $o++){
-                $sql = "SELECT * FROM RETURNS WHERE CustomerID=:WID";
+                $sql = "SELECT * FROM ITEM WHERE ItemID=:WID";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute(["WID" => $data[$o][1]]);
                 $ItemInfo = array();
                 $ItemInfo = $stmt->fetchAll();
-            */
-                if(count($ReturnIDs)>0){
+
+                if(count($data)>0){
                     echo '<tr>';
-                    echo '<td>', $ReturnIDs[$i][0], '</td>';
-                    echo '<td>', $ReturnIDs[$i][1], '</td>';
-                    echo '<td>', $ReturnIDs[$i][2], '</td>';
-                    //echo '<td>', $ItemInfo[0][4],'   $', $ItemInfo[0][3],'<br>',$ItemInfo[0][2],'</td>';
+                    echo '<td>', $data[$o][0], '</td>';
+                    echo '<td>', $order1ID[$i][1], '</td>';
+                    echo '<td>', $data[$o][1],'</td>';
+                    echo '<td>$', $ItemInfo[0][3],'<br>',$ItemInfo[0][2],'</td>';
+                    echo '<td>', $order1ID[$i][3],'</td>';
                     echo '</tr>';
 
                 }
             }
-        //}
-        /*
+        }
+/*
         echo '<tr><td colspan="4">=========================SUPPLIERS/CLIENTS============================';
         echo '</td></tr><tr> <td> Name </td> <td> Address </td> <td> Email and Phone </td> <td>Notes</td></tr>';
-        for($i = 0; $i<count($ReturnIDs[0]); $i++){
+        for($i = 0; $i<count($CustID[0]); $i++){
             $sql = "SELECT * FROM CUSTOMER WHERE Customer_ID=:STID";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute(["STID" => $ReturnIDs[0][$i]]);
+            $stmt->execute(["STID" => $CustID[0][$i]]);
             $data = array();
             $data = $stmt->fetchAll();
 
@@ -66,7 +70,6 @@
             echo '<td>', $data[0][9],'<br>',$data[0][10],'</td>';
             echo '<td> <input name = "client[',$i,']" value="', $data[0][11],'"></td>';
             echo '</tr>';
-
-        }
-        */
+*/
+      //  }
 ?>
