@@ -82,6 +82,21 @@
 
     <body>
       <p>Operations Rule...</p>
+      <div class = "classic panel" id = "inventory">
+            <form id = "manageLeadersForm" method = "post" action = "updateinvent.php">
+                <table id = "inventoryTable" class = "listing">
+                    <?php include "inventget.php"; ?>
+                </table>
+                <tr><td colspan='3'><input type="submit" value="Submit" style="background-color:green;"></td></tr>
+            </form>
+            <form id = "manageLeadersForm" method = "post" action = "updatesales.php">
+                <table id = "inventoryTable" class = "listing">
+                <tr><td colspan='4'>====================================================================</td></tr>
+                    <?php include "operationsget.php"; ?>
+                </table>
+                <tr><td colspan='3'><input type="submit" value="Submit" style="background-color:green;"></td></tr>
+            </form>
+        </div>
     </body>
 
 
