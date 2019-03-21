@@ -3,15 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2019 at 04:18 AM
+-- Generation Time: Mar 21, 2019 at 05:15 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
-
---Updated 3-17-19 by David
---Added a returns table, deleted item_status under item table, added entries to returns
---3/20/19
---Added Date to Order Table
---Changed Date to OrderDate
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -206,16 +200,17 @@ INSERT INTO `itemordered` (`OrderID`, `ItemID`, `Quantity`) VALUES
 CREATE TABLE `order1` (
   `OrderID` char(7) NOT NULL,
   `CustomerID` char(10) NOT NULL,
-  `OrderDate` date NOT NULL
+  `OrderDate` date NOT NULL,
+  `Com` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `order1`
 --
 
-INSERT INTO `order1` (`OrderID`, `CustomerID`, `OrderDate`) VALUES
-('1', '2', '2018-10-10'),
-('2', '1', '2018-10-25');
+INSERT INTO `order1` (`OrderID`, `CustomerID`, `OrderDate`, `Com`) VALUES
+('1', '2', '2018-10-10', 0),
+('2', '1', '2018-10-25', 0);
 
 -- --------------------------------------------------------
 
@@ -226,16 +221,17 @@ INSERT INTO `order1` (`OrderID`, `CustomerID`, `OrderDate`) VALUES
 CREATE TABLE `returns` (
   `CustomerID` char(10) NOT NULL,
   `ProductID` char(10) NOT NULL,
-  `OrderID` char(7) NOT NULL
+  `OrderID` char(7) NOT NULL,
+  `ReturnStatus` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `returns`
 --
 
-INSERT INTO `returns` (`CustomerID`, `ProductID`, `OrderID`) VALUES
-('1', '4', '2'),
-('2', '1', '1');
+INSERT INTO `returns` (`CustomerID`, `ProductID`, `OrderID`, `ReturnStatus`) VALUES
+('1', '4', '2', 0),
+('2', '1', '1', 0);
 
 -- --------------------------------------------------------
 
