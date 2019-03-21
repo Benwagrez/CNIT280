@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2019 at 05:15 PM
+-- Generation Time: Mar 21, 2019 at 10:48 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -78,7 +78,7 @@ INSERT INTO `customer` (`Customer_ID`, `Customer_FirstName`, `Customer_LastName`
 --
 
 CREATE TABLE `customershipping` (
-  `Shipping_ID` char(5) NOT NULL,
+  `Shipping_ID` int(5) NOT NULL,
   `WarehouseID` char(5) NOT NULL,
   `OrderID` char(7) NOT NULL,
   `Shipper_ID` char(10) NOT NULL
@@ -209,8 +209,8 @@ CREATE TABLE `order1` (
 --
 
 INSERT INTO `order1` (`OrderID`, `CustomerID`, `OrderDate`, `Com`) VALUES
-('1', '2', '2018-10-10', 0),
-('2', '1', '2018-10-25', 0);
+('1', '2', '2019-03-18', 0),
+('2', '1', '2019-03-15', 0);
 
 -- --------------------------------------------------------
 
@@ -248,6 +248,14 @@ CREATE TABLE `shipper` (
   `Shipper_Phone` char(10) NOT NULL,
   `Shipper_Email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shipper`
+--
+
+INSERT INTO `shipper` (`Shipper_ID`, `Shipper_Address`, `Shipper_City`, `Shipper_State`, `Shipper_Zip`, `Shipper_Phone`, `Shipper_Email`) VALUES
+('1', '19 Market St. ', 'Lewis Center', 'OH', '43035', '7462298271', 'smithshippingcorp@smithship.org'),
+('2', '44 Brook St.', 'Cranston', 'RI', '02920', '7712318792', 'cranstonsInc@cranstoninc.org');
 
 -- --------------------------------------------------------
 
@@ -490,6 +498,16 @@ ALTER TABLE `warehouse`
 --
 ALTER TABLE `warehouseinventory`
   ADD PRIMARY KEY (`WarehouseID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `customershipping`
+--
+ALTER TABLE `customershipping`
+  MODIFY `Shipping_ID` int(5) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
