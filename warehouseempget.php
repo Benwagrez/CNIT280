@@ -5,7 +5,7 @@
 
         // Warehouse inventories
 
-        $sql = "SELECT * FROM RETURNS";
+        $sql = "SELECT * FROM RETURNS WHERE ReturnStatus='0'";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $order1ID = array();
