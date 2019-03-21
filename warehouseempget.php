@@ -42,7 +42,7 @@
                 $ItemInfo = array();
                 $ItemInfo = $stmt->fetchAll();
 
-                if(count($data)>0){
+                if($o==0){
                     echo '<tr>';
                     echo '<td>', $data[$o][0], '</td>';
                     echo '<td>', $order1ID[$i][1], '</td>';
@@ -53,7 +53,19 @@
                     echo '</tr>';
 
                 }
+                else{
+                    echo '<tr>';
+                    echo '<td>', $data[$o][0], '</td>';
+                    echo '<td>', $order1ID[$i][1], '</td>';
+                    echo '<td>', $data[$o][1],'</td>';
+                    echo '<td>$', $ItemInfo[0][3],'<br>',$ItemInfo[0][2],'</td>';
+                    echo '<td>', $order1ID[$i][3],'</td>';
+                    echo '<td> </td>';
+                    echo '</tr>';
+               }
             }
+            
+            
         }
 /*
         echo '<tr><td colspan="4">=========================SUPPLIERS/CLIENTS============================';
