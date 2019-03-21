@@ -89,12 +89,11 @@
                 </table>
                 <tr><td colspan='3'><input type="submit" value="Submit" style="background-color:green;"></td></tr>
             </form>
-            <form id = "manageLeadersForm" method = "post" action = "updatesales.php">
+            <form id = "manageLeadersForm" method = "post" action = "updateoperations.php">
                 <table id = "inventoryTable" class = "listing">
                 <tr><td colspan='4'>====================================================================</td></tr>
                     <?php include "operationsget.php"; ?>
                 </table>
-                <tr><td colspan='3'><input type="submit" value="Submit" style="background-color:green;"></td></tr>
             </form>
         </div>
     </body>
