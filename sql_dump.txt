@@ -3,13 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2019 at 07:41 PM
+-- Generation Time: Mar 21, 2019 at 04:01 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
+
 --Updated 3-17-19 by David
 --Added a returns table, deleted item_status under item table, added entries to returns
-
+--Added Date to Order Table
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -202,16 +203,17 @@ INSERT INTO `itemordered` (`OrderID`, `ItemID`, `Quantity`) VALUES
 
 CREATE TABLE `order1` (
   `OrderID` char(7) NOT NULL,
-  `CustomerID` char(10) NOT NULL
+  `CustomerID` char(10) NOT NULL,
+  `Date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `order1`
 --
 
-INSERT INTO `order1` (`OrderID`, `CustomerID`) VALUES
-('1', '2'),
-('2', '1');
+INSERT INTO `order1` (`OrderID`, `CustomerID`, `Date`) VALUES
+('1', '2', '2018-10-10'),
+('2', '1', '2018-10-25');
 
 -- --------------------------------------------------------
 
@@ -382,7 +384,7 @@ CREATE TABLE `warehouseinventory` (
 --
 
 INSERT INTO `warehouseinventory` (`WarehouseID`, `ProductID`, `Quantity`, `Reorder_Limit`) VALUES
-('1', '1', 54, 30),
+('1', '1', 54, 99),
 ('2', '2', 58, 20);
 
 --
