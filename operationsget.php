@@ -5,7 +5,7 @@
 
         // Warehouse inventories
 
-        $sql = "SELECT * FROM order1 WHERE orderdate>DATE_SUB(curdate(), INTERVAL 7 DAY) AND Com=false";
+        $sql = "SELECT * FROM order1 WHERE orderdate>DATE_SUB(curdate(), INTERVAL 31 DAY) AND Com=false";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $order1ID = array();
