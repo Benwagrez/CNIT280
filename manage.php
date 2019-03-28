@@ -74,6 +74,11 @@
                 <tr><td colspan='3'><input type="submit" value="Submit" style="background-color:green;"></td></tr>
             </form>
         </div>
+        <div class = "classic panel" id = "inventory">
+            <table id = "inventoryTable" class = "listing">
+                <?php include "manageget.php"; ?>
+            </table>
+        </div>
         <div id = "footerPusher">
 
             <img id = "fixedBGImg" src = "img/mountain.png"> <!--Fixed image in background-->
