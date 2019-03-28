@@ -113,7 +113,7 @@
                     echo '<td>', $data[$o][1],'</td>';
                     echo '<td>$', $ItemInfo[0][3],'<br>',$ItemInfo[0][2],'</td>';
                     echo '<td>', $order1ID[$i][3],'</td>';
-                    echo '<td> <input name = "order[',$i,']" type="submit" value="<>"> </td>';
+                    echo '<td> <input name = "orderC[',$i,']" type="submit" value="<>"> </td>';
                     echo '</tr>';
 
                 }
