@@ -11,6 +11,12 @@
         $order1ID = array();
         $order1ID = $stmt->fetchAll();
 
+
+
+
+
+
+
         // Store inventories
 
         $sql = "SELECT * FROM CUSTOMER";
@@ -20,9 +26,67 @@
         $CustID = array();
         array_push($CustID, $stmt->fetchAll(PDO::FETCH_COLUMN, 0));
 
+
+
+
 	// Initializing data into HTML elements
-        echo '<tr><td colspan=4>RETURNS</td></tr>
+        echo '<tr><td colspan=6>RETURNS</td></tr>
         <tr> <td> Order ID </td> <td> Customer ID </td> <td> Item ID </td> <td> Details </td> <td> Return Status </td><td> Confirm Return </td></tr>';
+        for($i = 0; $i<count($order1ID); $i++){
+            $sql = "SELECT * FROM ITEMORDERED WHERE OrderID=:WID";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(["WID" => $order1ID[$i][0]]);
+            $data = array();
+            $data = $stmt->fetchAll();
+            //$sql = "SELECT * FROM CUSTOMER WHERE Customer_ID=:WID";
+            //$stmt = $pdo->prepare($sql);
+            //$stmt->execute(["WID" => $order1ID[$i][1]]);
+            //$cusInfo = array();
+            //$cusInfo = $stmt->fetchAll();
+
+            for($o = 0; $o<count($data); $o++){
+                $sql = "SELECT * FROM ITEM WHERE ItemID=:WID";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute(["WID" => $data[$o][1]]);
+                $ItemInfo = array();
+                $ItemInfo = $stmt->fetchAll();
+
+                if($o==0){
+                    echo '<tr>';
+                    echo '<td>', $data[$o][0], '</td>';
+                    echo '<td>', $order1ID[$i][1], '</td>';
+                    echo '<td>', $data[$o][1],'</td>';
+                    echo '<td>$', $ItemInfo[0][3],'<br>',$ItemInfo[0][2],'</td>';
+                    echo '<td>', $order1ID[$i][3],'</td>';
+                    echo '<td> <input name = "order[',$i,']" type="submit" value="<>"> </td>';
+                    echo '</tr>';
+
+                }
+                else{
+                    echo '<tr>';
+                    echo '<td>', $data[$o][0], '</td>';
+                    echo '<td>', $order1ID[$i][1], '</td>';
+                    echo '<td>', $data[$o][1],'</td>';
+                    echo '<td>$', $ItemInfo[0][3],'<br>',$ItemInfo[0][2],'</td>';
+                    echo '<td>', $order1ID[$i][3],'</td>';
+                    echo '<td> </td>';
+                    echo '</tr>';
+               }
+            }
+
+
+        }
+
+
+        $sql = "SELECT * FROM RETURNS WHERE ReturnStatus='1'";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $order1ID = array();
+        $order1ID = $stmt->fetchAll();
+
+        echo '<tr><td colspan=6>**************************************************************************************************************************************</td></tr>';
+        echo '<tr><td colspan=6>IN ROUTE RETURNS</td></tr>
+        <tr> <td> Order ID </td> <td> Customer ID </td> <td> Item ID </td> <td> Details </td> <td> Return Status </td><td> Cancel Return </td></tr>';
         for($i = 0; $i<count($order1ID); $i++){
             $sql = "SELECT * FROM ITEMORDERED WHERE OrderID=:WID";
             $stmt = $pdo->prepare($sql);
