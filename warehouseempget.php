@@ -21,7 +21,7 @@
         array_push($CustID, $stmt->fetchAll(PDO::FETCH_COLUMN, 0));
 
 	// Initializing data into HTML elements
-        echo '<tr><td colspan=4>ORDERS</td></tr>
+        echo '<tr><td colspan=4>RETURNS</td></tr>
         <tr> <td> Order ID </td> <td> Customer ID </td> <td> Item ID </td> <td> Details </td> <td> Return Status </td><td> Confirm Return </td></tr>';
         for($i = 0; $i<count($order1ID); $i++){
             $sql = "SELECT * FROM ITEMORDERED WHERE OrderID=:WID";
@@ -64,8 +64,8 @@
                     echo '</tr>';
                }
             }
-            
-            
+
+
         }
 /*
         echo '<tr><td colspan="4">=========================SUPPLIERS/CLIENTS============================';

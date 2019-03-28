@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2019 at 10:48 PM
+-- Generation Time: Mar 28, 2019 at 04:10 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -83,6 +83,13 @@ CREATE TABLE `customershipping` (
   `OrderID` char(7) NOT NULL,
   `Shipper_ID` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customershipping`
+--
+
+INSERT INTO `customershipping` (`Shipping_ID`, `WarehouseID`, `OrderID`, `Shipper_ID`) VALUES
+(1, '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -209,8 +216,28 @@ CREATE TABLE `order1` (
 --
 
 INSERT INTO `order1` (`OrderID`, `CustomerID`, `OrderDate`, `Com`) VALUES
-('1', '2', '2019-03-18', 0),
+('1', '2', '2019-03-18', 1),
 ('2', '1', '2019-03-15', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pos`
+--
+
+CREATE TABLE `pos` (
+  `OrderID` char(7) NOT NULL,
+  `POSID` char(10) NOT NULL,
+  `StoreID` char(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pos`
+--
+
+INSERT INTO `pos` (`OrderID`, `POSID`, `StoreID`) VALUES
+('1', '1', '2'),
+('2', '1', '2');
 
 -- --------------------------------------------------------
 
@@ -230,8 +257,8 @@ CREATE TABLE `returns` (
 --
 
 INSERT INTO `returns` (`CustomerID`, `ProductID`, `OrderID`, `ReturnStatus`) VALUES
-('1', '4', '2', 0),
-('2', '1', '1', 0);
+('1', '4', '2', 1),
+('2', '1', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -452,6 +479,12 @@ ALTER TABLE `order1`
   ADD PRIMARY KEY (`OrderID`);
 
 --
+-- Indexes for table `pos`
+--
+ALTER TABLE `pos`
+  ADD PRIMARY KEY (`OrderID`,`POSID`);
+
+--
 -- Indexes for table `returns`
 --
 ALTER TABLE `returns`
@@ -507,7 +540,7 @@ ALTER TABLE `warehouseinventory`
 -- AUTO_INCREMENT for table `customershipping`
 --
 ALTER TABLE `customershipping`
-  MODIFY `Shipping_ID` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `Shipping_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
