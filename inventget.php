@@ -23,7 +23,7 @@
         array_push($storeID, $stmt->fetchAll(PDO::FETCH_COLUMN, 0));
 
 	// Initializing data into HTML elements
-        echo '<tr> <td> Warehouse ID </td> <td> Product ID </td> <td> Reorder limit </td></tr>';
+        echo '<tr> <td> Warehouse ID </td> <td> Product ID </td> <td> QUANTITY </td> <td> Reorder limit </td></tr>';
         for($i = 0; $i<count($warehouseID[0]); $i++){
             $sql = "SELECT * FROM warehouseinventory WHERE warehouseID=:WID";
             $stmt = $pdo->prepare($sql);
@@ -34,6 +34,7 @@
                 if(count($data)>0){
                     if($data[$o][2]<$data[$o][3]){
                         echo '<tr>';
+                        echo '<td>', $data[$o][0], '</td>';
                         echo '<td>', $data[$o][1], '</td>';
                         echo '<td  style="color: red;">', $data[$o][2], '</td>';
                         echo '<td> <input name = "warehouselim[',$i,'][', $o,']" value="', $data[$o][3],'">';
@@ -43,6 +44,7 @@
                     }
                     else{
                         echo '<tr>';
+                        echo '<td>', $data[$o][0], '</td>';
                         echo '<td>', $data[$o][1], '</td>';
                         echo '<td>', $data[$o][2], '</td>';
                         echo '<td> <input name = "warehouselim[',$i,'][', $o,']" value="', $data[$o][3],'">';
@@ -66,6 +68,7 @@
                 if(count($data)>0){
                     if($data[$o][2]<$data[$o][3]){
                         echo '<tr>';
+                        echo '<td>', $data[$o][0], '</td>';
                         echo '<td>', $data[$o][1], '</td>';
                         echo '<td  style="color: red;">', $data[$o][2], '</td>';
                         echo '<td> <input name = "storelim[',$i,'][', $o,']" value="', $data[$o][3],'">';
@@ -75,6 +78,7 @@
                     }
                     else{
                         echo '<tr>';
+                        echo '<td>', $data[$o][0], '</td>';
                         echo '<td>', $data[$o][1], '</td>';
                         echo '<td>', $data[$o][2], '</td>';
                         echo '<td> <input name = "storelim[',$i,'][', $o,']" value="', $data[$o][3],'">';
