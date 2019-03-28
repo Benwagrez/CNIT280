@@ -86,7 +86,6 @@
               <table id = "returnsTable" class = "listing">
                   <?php include "warehouseempget.php"; ?>
               </table>
-              <tr><td colspan='3'><input type="submit" value="Submit" style="background-color:green;"></td></tr>
           </form>
       </div>
       <div id = "footerPusher">
