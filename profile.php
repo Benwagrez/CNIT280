@@ -109,14 +109,14 @@
 
                 // If users "Position" : admin -> admin dashboard
 
-                    //if($data->Position!=="Student"):
+                    if($_SESSION["EmployeeID"]):
                         echo '<div id = "adminDashboardButton" class = "dashboardButtonProfile">
                             <p>Admin Dashboard</p>
                             </div>';
+                    endif;
                         echo '<div id = "ChatroomButton" class = "dashboardButtonProfile">
                             <p>Company Chat Room</p>
                             </div>';
-                    //endif;
             ?>
 
         <div id = "footerPusher">
