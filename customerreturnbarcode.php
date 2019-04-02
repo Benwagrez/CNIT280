@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<?php 
+<?php
     session_start();
     require "database.php";
 ?>
@@ -19,11 +19,12 @@
     </head>
 
     <header id = "header"><?php include "header.php"; ?></header>
-        
+
     <body>
+
         <div id = "footerPusher">
 
-            <img id = "fixedBGImg" src = "img/mountain.png"> <!--Fixed image in background--> 
+            <img id = "fixedBGImg" src = "img/mountain.png"> <!--Fixed image in background-->
             <form action="/barcodecheck.php" method="post">
                 Barcode:<br>
                 <input type="text" name="barcodeInput" value="Please enter barcode"><br>

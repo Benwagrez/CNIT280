@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<?php 
+<?php
     session_start();
     require "database.php";
 ?>
@@ -22,6 +22,9 @@
                 $("#adminDashboardButton").click(function(){
                     window.location.href = "admin-dashboard.php";
                 });
+                $("#ChatroomButton").click(function(){
+                    window.location.href = "chatroom.php";
+                });
             });
         </script>
         <style>
@@ -41,7 +44,7 @@
                 font-size: 28px;
                 align-items: center;
                 justify-content: center;
-                
+
                 /* Color */
                 background-color: white;
                 color: #005da3;
@@ -90,11 +93,11 @@
     </head>
 
     <header id = "header"><?php include "header.php"; ?></header>
-        
+
     <body>
 
             <!--Include Admin Dashboard link-->
-            <?php 
+            <?php
 
                 // Pulling data from "students" for current user
 
@@ -105,10 +108,13 @@
 
 
                 // If users "Position" : admin -> admin dashboard
-                
+
                     //if($data->Position!=="Student"):
                         echo '<div id = "adminDashboardButton" class = "dashboardButtonProfile">
                             <p>Admin Dashboard</p>
+                            </div>';
+                        echo '<div id = "ChatroomButton" class = "dashboardButtonProfile">
+                            <p>Company Chat Room</p>
                             </div>';
                     //endif;
             ?>
@@ -123,4 +129,3 @@
     <footer id = "footer"><?php include "footer.php"; ?></footer>
 
 </html>
-
