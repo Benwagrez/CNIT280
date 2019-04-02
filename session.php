@@ -67,7 +67,7 @@
 
                     // If successfull, start SESSION with "StudentID"
 
-                        $_SESSION["customerID"] = $CustomerID;
+                        $_SESSION["CustomerID"] = $CustomerID;
                         header('Location: index.php'); 
                 } else{
                     header("location: login.php?login=invalid");

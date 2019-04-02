@@ -109,7 +109,7 @@
 
                 // If users "Position" : admin -> admin dashboard
 
-                    if($_SESSION["EmployeeID"]):
+                    if(isset($_SESSION["EmployeeID"]):
                         echo '<div id = "adminDashboardButton" class = "dashboardButtonProfile">
                             <p>Admin Dashboard</p>
                             </div>';
