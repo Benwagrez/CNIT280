@@ -37,7 +37,7 @@ window.onclick = function(event) {
         <?php if(isset($_SESSION["EmployeeID"]) || isset($_SESSION["CustomerID"])) : ?><!--Checking if student is logged in for different nav bar-->
             <div id = "navBarNormal"><a class = "baseText" id = "homeLink" href = "index.php">Home</a><!--Removing spacing
             --><a class = "baseText" id = "eventsLink" href = "customerreturnbarcode.php">Customer Returns</a><!--Removing spacing
-            --><a class = "baseText" id = "membersLink" href = "members.php">Shopping</a><!--Removing spacing
+            --><a class = "baseText" id = "membersLink" href = "members.php">TBD</a><!--Removing spacing
 			--><a class = "baseText" id = "myProfileLink" href = "profile.php">Profile</a></div><!--Removing spacing
             --><div class="dropdown"><!--Removing spacing
             --><a class = "baseText" href="index.php">Home</a><!--Removing spacing
@@ -51,8 +51,8 @@ window.onclick = function(event) {
         <?php else :?><!--If not logged in then the nav bar below-->
         <div id = "navBarNormal"><a class = "baseText" id = "homeLink" style="width:33.33%" href = "index.php">Home</a><!--Removing spacing
             --><a class = "baseText" id = "customerReturns" style="width:33.33%" href = "customerreturnbarcode.php">Customer Returns</a><!--Removing spacing
-			--><a class = "baseText" id = "manage" style="width:33.33%" href = "index.php">Shopping</a></div><!--Removing spacing
-            --><div class="dropdown"><a style="width:33.33%" class = "baseText" href="index.php">Home</a><!--Removing spacing
+			--><a class = "baseText" id = "manage" style="width:33.33%" href = "profile.php">Profile</a></div><!--Removing spacing
+            --><div class="dropdown"><a style="width:33.33%" class = "baseText" href="index.php">TBD</a><!--Removing spacing
             --><a class = "baseText" style="width:33.33%" href="login.php">Sign In</a><!--Removing spacing
             --><button onclick="navBarDD()" class="dropbtn" aria-haspopup="true">&#9776;</button>
                 <div id="navBarDD" class="dropdown-content">
